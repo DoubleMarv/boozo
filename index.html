@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+		<link rel="stylesheet" href="inc/app.css">
+
+	<title>Boozo</title>
+</head>
+<body>
+
+<div class="all-contain">
+<!-- ///////////////////// start container /////////////////////////////////-->
+<div class="main-zone">
+    <div class="leftside">
+<p>Having a pint of </p>
+    	<select onchange="getLeft()" id="leftsidelist"><option>Select</option></select>
+<p id="leftcalories" class="bigcalories">&nbsp;</p>
+    </div>
+    <div class="rightside">
+<p>instead of a pint of </p>
+    	<select onchange="getRight()" id="rightsidelist"><option>Select</option></select>
+<p id="rightcalories" class="bigcalories">&nbsp;</p>
+    </div>
+       <div class="mainresults">
+<p>Means <span id="resulto"></span> <span id="lessmore"></span> calories</p></div>
+</div>
+
+
+<!-- ///////////////////// end container /////////////////////////////////-->
+</div>
+
+
+
+
+
+
+
+
+
+<script src="inc/data.js"></script>
+
+<script type="text/javascript">
+
+var alldata = boozeobject.booze;
+var leftsidelist = document.getElementById('leftsidelist');
+var leftcalories = document.getElementById('leftcalories');
+var rightsidelist = document.getElementById('rightsidelist');
+var rightcalories = document.getElementById('rightcalories');
+var mainresults = document.getElementById('mainresults');
+var lessmorespan = document.getElementById('lessmore');
+var resultulon = document.getElementById('resulto');
+
+var left = 0;
+var right = 0;
+var lessmore = '';
+
+for (const key in alldata) {
+		let additem = document.createElement('option'); // is a node
+		const value = alldata[key];
+		additem.innerHTML = value.title;
+		additem.dataset.calories = value.calories;
+		leftsidelist.appendChild(additem);
+}
+
+for (const key in alldata) {
+		let additem = document.createElement('option'); // is a node
+		const value = alldata[key];
+		additem.innerHTML = value.title;
+		additem.dataset.calories = value.calories;
+		rightsidelist.appendChild(additem);
+}
+
+
+var getValue = leftsidelist.selectedOptions[0].value;
+
+
+function getResults(a, b){
+const firstnum = parseInt(a);
+const secondnum = parseInt(b);
+let mainresult = (secondnum-firstnum);
+resultulon.innerHTML = mainresult;
+
+if (mainresult>0) {
+lessmore = 'more';
+} else {
+	lessmore = 'less';
+}
+
+lessmorespan.innerHTML = lessmore;
+
+}
+
+
+function getLeft(){
+var getValue = leftsidelist.selectedOptions[0].dataset.calories;
+left = getValue;
+leftcalories.innerHTML = left;
+getResults(right, left);
+}
+
+function getRight(){
+var getValue = rightsidelist.selectedOptions[0].dataset.calories;
+right = getValue;
+rightcalories.innerHTML = right;
+getResults(right, left);
+}
+
+
+
+
+</script>
+
+
+</body>
+</html>

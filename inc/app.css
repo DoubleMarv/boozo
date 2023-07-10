@@ -1,0 +1,20 @@
+.all-contain{
+	max-width: 600px;
+	margin: 0 auto;
+	height: 100vh;
+	display: flex;
+}
+
+
+
+.main-zone{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+
+.bigcalories{
+	color: #33bec3;
+	font-size: calc(2rem + 0.1vw);
+}
