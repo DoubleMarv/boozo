@@ -1,16 +1,32 @@
+@import url(https://fonts.bunny.net/css?family=abel:400|barrio:400);
+
+body{
+font-family: 'Abel', sans-serif;
+}
+
+.titletext{
+	font-family: 'Barrio', display;
+	color: #FFC0CB;
+}
+
 .all-contain{
 	max-width: 600px;
 	margin: 0 auto;
 	height: 100vh;
 	display: flex;
+	flex-direction: column;
 }
 
-
+.titlezone, .resultzone{
+		display: flex;
+	align-items: center;
+flex-direction: column;
+}
 
 .main-zone{
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
 }
 
 

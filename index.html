@@ -12,7 +12,13 @@
 
 <div class="all-contain">
 <!-- ///////////////////// start container /////////////////////////////////-->
+<div class="titlezone">
+	<h1 class="titletext">Boozo</h1>
+<p>Lower calories while <span style="font-style:italic">lowering</span> pints</p>
+</div>
+
 <div class="main-zone">
+
     <div class="leftside">
 <p>Having a pint of </p>
     	<select onchange="getLeft()" id="leftsidelist"><option>Select</option></select>
@@ -23,10 +29,12 @@
     	<select onchange="getRight()" id="rightsidelist"><option>Select</option></select>
 <p id="rightcalories" class="bigcalories">&nbsp;</p>
     </div>
-       <div class="mainresults">
-<p>Means <span id="resulto"></span> <span id="lessmore"></span> calories</p></div>
 </div>
 
+<div class="resultzone">
+	       <div class="mainresults">
+<p>Means <span id="resulto"></span> <span id="lessmore"></span> calories</p></div>
+</div>
 
 <!-- ///////////////////// end container /////////////////////////////////-->
 </div>
