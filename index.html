@@ -22,18 +22,23 @@
     <div class="leftside">
 <p>Having a pint of </p>
     	<select onchange="getLeft()" id="leftsidelist"><option>Select</option></select>
-<p id="leftcalories" class="bigcalories">&nbsp;</p>
+<p id="leftcalories" class="bigcalories"><span class="waiter">
+<svg width="24" height="24" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d=" M 200 425C 241 425 275 459 275 500C 275 541 241 575 200 575C 159 575 125 541 125 500C 125 459 159 425 200 425C 200 425 200 425 200 425M 500 425C 541 425 575 459 575 500C 575 541 541 575 500 575C 459 575 425 541 425 500C 425 459 459 425 500 425C 500 425 500 425 500 425M 800 425C 841 425 875 459 875 500C 875 541 841 575 800 575C 759 575 725 541 725 500C 725 459 759 425 800 425C 800 425 800 425 800 425"/></svg></span></p>
     </div>
     <div class="rightside">
 <p>instead of a pint of </p>
     	<select onchange="getRight()" id="rightsidelist"><option>Select</option></select>
-<p id="rightcalories" class="bigcalories">&nbsp;</p>
+<p id="rightcalories" class="bigcalories"><span class="waiter">
+<svg width="24" height="24" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d=" M 200 425C 241 425 275 459 275 500C 275 541 241 575 200 575C 159 575 125 541 125 500C 125 459 159 425 200 425C 200 425 200 425 200 425M 500 425C 541 425 575 459 575 500C 575 541 541 575 500 575C 459 575 425 541 425 500C 425 459 459 425 500 425C 500 425 500 425 500 425M 800 425C 841 425 875 459 875 500C 875 541 841 575 800 575C 759 575 725 541 725 500C 725 459 759 425 800 425C 800 425 800 425 800 425"/></svg></span></p>
     </div>
 </div>
 
 <div class="resultzone">
 	       <div class="mainresults">
-<p>Means <span id="resulto"></span> <span id="lessmore"></span> calories</p></div>
+<p id="resultstext">Means <span id="resulto"></span> <span id="lessmore"></span> calories</p>
+<p class="fatstamp" id="fatto">Verdict: Fat</p>
+<p class="fatstamp" id="thinno">Lower that pint</p>
+</div>
 </div>
 
 <!-- ///////////////////// end container /////////////////////////////////-->
@@ -47,78 +52,8 @@
 
 
 
-<script src="inc/data.js"></script>
+<script src="inc/datafetch.js"></script>
 
-<script type="text/javascript">
-
-var alldata = boozeobject.booze;
-var leftsidelist = document.getElementById('leftsidelist');
-var leftcalories = document.getElementById('leftcalories');
-var rightsidelist = document.getElementById('rightsidelist');
-var rightcalories = document.getElementById('rightcalories');
-var mainresults = document.getElementById('mainresults');
-var lessmorespan = document.getElementById('lessmore');
-var resultulon = document.getElementById('resulto');
-
-var left = 0;
-var right = 0;
-var lessmore = '';
-
-for (const key in alldata) {
-		let additem = document.createElement('option'); // is a node
-		const value = alldata[key];
-		additem.innerHTML = value.title;
-		additem.dataset.calories = value.calories;
-		leftsidelist.appendChild(additem);
-}
-
-for (const key in alldata) {
-		let additem = document.createElement('option'); // is a node
-		const value = alldata[key];
-		additem.innerHTML = value.title;
-		additem.dataset.calories = value.calories;
-		rightsidelist.appendChild(additem);
-}
-
-
-var getValue = leftsidelist.selectedOptions[0].value;
-
-
-function getResults(a, b){
-const firstnum = parseInt(a);
-const secondnum = parseInt(b);
-let mainresult = (secondnum-firstnum);
-resultulon.innerHTML = mainresult;
-
-if (mainresult>0) {
-lessmore = 'more';
-} else {
-	lessmore = 'less';
-}
-
-lessmorespan.innerHTML = lessmore;
-
-}
-
-
-function getLeft(){
-var getValue = leftsidelist.selectedOptions[0].dataset.calories;
-left = getValue;
-leftcalories.innerHTML = left;
-getResults(right, left);
-}
-
-function getRight(){
-var getValue = rightsidelist.selectedOptions[0].dataset.calories;
-right = getValue;
-rightcalories.innerHTML = right;
-getResults(right, left);
-}
-
-
-
-
-</script>
 
 
 </body>

@@ -7,11 +7,14 @@ font-family: 'Abel', sans-serif;
 .titletext{
 	font-family: 'Barrio', display;
 	color: #FFC0CB;
+	font-size: calc(3rem + 0.1vw);
 }
+
+
 
 .all-contain{
 	max-width: 600px;
-	margin: 0 auto;
+	margin: 10vh auto;
 	height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -32,5 +35,28 @@ flex-direction: column;
 
 .bigcalories{
 	color: #33bec3;
+	font-size: calc(1.5rem + 0.1vw);
+	text-align: center;
+	margin: 0.25rem;
+	font-weight: 600;
+}
+
+.waiter{
+	opacity: 0.5;
+	height: 1rem;
+}
+
+.mainresults{
+	text-align: center;
+}
+
+.fatstamp{
+font-family: 'Barrio', display;
+	color: #FFC0CB;
 	font-size: calc(2rem + 0.1vw);
+	text-align: center;
+	margin: 0.25rem;
+	font-weight: 600;
+	transform:rotate(-10deg);
+	text-transform: uppercase;
 }
